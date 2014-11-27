@@ -1,19 +1,24 @@
-## Team Fortress 2 + Docker
+# ruippeixotog/tf2-server Docker image
 
-### Details:
-By default image is build with enabled autoupdate feature (take a look at `tf.sh` file).
-You can create new Dockerfile based on that image (FROM tf2) and customize it with plugins, configs, CMD and ENTRYPOINT instructions.
+This repository contains the Dockerfile for `ruippeixotog/tf2-server`, a Docker image containing a dedicated Team Fortress 2 server. The original Dockerfile is from [Gonzih](https://github.com/Gonzih) and is available [here](https://github.com/Gonzih/docker-tf2-server).
 
-```shell
-# Build image and tag it as tf2
-docker build -t tf2 github.com/Gonzih/docker-tf2-server
+This image is built with the autoupdate flag (-autoupdate) enabled, which means the server attempts to auto-update itself when an update comes out.
 
-# Run image with default options (CMD in Dockerfile)
-docker run -d -p 27015:27015/udp tf2
+## How to run
 
-# Run image with custom options
-docker run -d -p 27015:27015/udp tf2 +sv_pure 2 +map ctf_2fort.bsp +maxplayers 32
+You can simply run the image with the default settings:
 
-# Run image with custom config
-docker run -d -p 27015:27015/udp -v ~/server.cfg:/home/tf2/hlserver/tf2/tf/cfg/server.cfg:ro tf2
 ```
+docker run -d -p 27015:27015/udp ruippeixotog/tf2-server
+```
+
+You can also specify the server settings explicitly:
+
+```
+docker run -d -p 27015:27015/udp ruippeixotog/tf2-server +sv_pure 2 +map \
+  ctf_2fort.bsp +maxplayers 32
+```
+
+## Ports
+
+* **27015/udp** - The main connection port, allowing clients to connect.
