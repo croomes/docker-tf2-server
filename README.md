@@ -22,3 +22,4 @@ docker run -d -p 27015:27015/udp ruippeixotog/tf2-server +sv_pure 2 +map \
 ## Ports
 
 * **27015/udp** - The main connection port, allowing clients to connect.
+* **27015/tcp** - RCON port to manage server using admin tools

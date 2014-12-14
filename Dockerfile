@@ -17,7 +17,7 @@ ADD ./update.sh $SERVER/update.sh
 ADD ./tf.sh $SERVER/tf.sh
 RUN $SERVER/update.sh
 
-EXPOSE 27015/udp
+EXPOSE 27015/udp 27015
 
 ENTRYPOINT ["/home/tf2/hlserver/tf.sh"]
 CMD ["+sv_pure", "1", "+mapcycle", "mapcycle_quickplay_payload.txt", "+map", "pl_badwater", "+maxplayers", "24"]
