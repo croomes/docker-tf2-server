@@ -27,11 +27,12 @@ check_dependencies() {
 }
 
 check_docker_volume() {
-  docker volume inspect "${1}"
+  docker volume inspect "${1}" > /dev/null 2>&1
 }
 
 create_docker_volume() {
-  docker volume create "${1}"
+  echo "Creating Docker Volume ${1}"
+  docker volume create "${1}" > /dev/null 2>&1
 }
 
 create_config_files() {

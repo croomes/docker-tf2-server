@@ -27,6 +27,10 @@ install_configs() {
 
 run_server() {
   cd $TF2
+  if [ ! -d ~/.steam/sdk32 ]; then
+    mkdir -p ~/.steam/sdk32/
+    ln -s $SERVER/linux32/steamclient.so ~/.steam/sdk32/steamclient.so
+  fi
   LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$SERVER/linux32:$SERVER/linux64 ./srcds_run -game tf -autoupdate -steam_dir $SERVER -steamcmd_script $SERVER/tf2_ds.txt $@
 }
 
