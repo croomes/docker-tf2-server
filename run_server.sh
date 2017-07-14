@@ -27,7 +27,7 @@ check_dependencies() {
 }
 
 check_docker_volume() {
-  docker volume list "${1}"
+  docker volume inspect "${1}"
 }
 
 create_docker_volume() {
