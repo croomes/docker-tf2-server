@@ -2,11 +2,11 @@
 set -euo pipefail
 
 # Default variables if not set in the environment
-export SERVER_CFG_URL="${SERVER_CFG_URL:-https://raw.githubusercontent.com/anoldguy/docker-tf2-server/master/server.cfg}"
+export SERVER_CFG_URL="${SERVER_CFG_URL:-https://raw.githubusercontent.com/anoldguy/docker-tf2-server/master/config/server.cfg}"
 
-export ADMIN_USERS_URL="${ADMIN_USERS_URL:-https://raw.githubusercontent.com/anoldguy/docker-tf2-server/master/admins_simple.ini}"
+export ADMIN_USERS_URL="${ADMIN_USERS_URL:-https://raw.githubusercontent.com/anoldguy/docker-tf2-server/master/config/admins_simple.ini}"
 
-export CORE_CFG_URL="${CORE_CFG_URL:-https://raw.githubusercontent.com/anoldguy/docker-tf2-server/master/core.cfg}"
+export CORE_CFG_URL="${CORE_CFG_URL:-https://raw.githubusercontent.com/anoldguy/docker-tf2-server/master/config/core.cfg}"
 
 SERVER_OPTS="${@:-+exec server.cfg}"
 
